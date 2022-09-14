@@ -1,0 +1,60 @@
+.div-one {
+  top: 10px;
+  width: 200px;
+  height: 200px;
+  border: 2px black solid;
+  background-color: white;
+}
+.div-one h3 {
+  position: absolute;
+  margin-top: 0;
+  top: 10px;
+}
+.father {
+  position: relative;
+}
+.div-two {
+  position: relative;
+  bottom: 60px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  border: 2px black solid;
+  background-color: white;
+}
+.div-two h3 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 2px;
+}
+.div-three h3 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 2px;
+}
+.div-three {
+  position: absolute;
+  top: 300px;
+  width: 500px;
+  height: 200px;
+  border: 2px black solid;
+  background-color: white;
+}
+.div-four {
+  position: absolute;
+  top: 10px;
+  left: 400px;
+  width: 90px;
+  height: 600px;
+  border: 2px black solid;
+  background-color: white;
+}
+
+.div-four h3 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 2px;
+}

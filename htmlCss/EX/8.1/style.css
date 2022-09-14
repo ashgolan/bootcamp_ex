@@ -1,0 +1,16 @@
+#outer {
+  width: 100px;
+  height: 100px;
+  background: darkcyan;
+  margin: 50px;
+}
+
+#inner {
+  position: relative;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  background: lightgreen;
+  top: 10px;
+}
+/*  the absolute is not work here because we want to stay in the parent div , not outside it   */

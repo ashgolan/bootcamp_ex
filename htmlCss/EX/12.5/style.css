@@ -1,0 +1,36 @@
+p {
+  margin: 80px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: brown;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 135);
+  color: brown;
+  bottom: 100%;
+  left: 5%;
+  margin-left: -60%;
+}
+.tooltiptext::before {
+  content: "";
+  border-bottom: 5px solid transparent;
+  border-top: 5px rgb(240, 240, 135) solid;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 5px);
+}
+
+.tooltip:hover span {
+  visibility: visible;
+}

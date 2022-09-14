@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.item1,
+.item2,
+.item3 {
+  width: 100px;
+  height: 100px;
+  padding: 0px 20px;
+}
+.item1 {
+  background-color: green;
+}
+.item2 {
+  background-color: blue;
+}
+.item3 {
+  background-color: red;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,57 @@
+body {
+  background-color: rgb(49, 80, 148);
+}
+.btn-1 {
+  background-color: rgb(47, 107, 163);
+  border: none;
+  color: white;
+  padding: 10px;
+}
+.btn-1:hover {
+  background-color: blue;
+}
+.btn-2 {
+  background-color: rgb(72, 128, 35);
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.btn-2:hover {
+  background-color: rgb(4, 63, 24);
+}
+.btn-3 {
+  background-color: transparent;
+  border: 2px solid rgb(128, 35, 35);
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+}
+.btn-3:hover {
+  background-color: rgb(128, 35, 35);
+}
+.btn-4 {
+  background-color: transparent;
+  border: 2px solid rgb(200, 241, 14);
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.btn-4:hover {
+  background-color: rgb(200, 241, 14);
+}
+.btn-5 {
+  width: 50px;
+  font-size: 7px;
+  background-color: transparent;
+  border: 2px solid rgb(200, 241, 14);
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.btn-5:hover {
+  background-color: rgb(200, 241, 14);
+}

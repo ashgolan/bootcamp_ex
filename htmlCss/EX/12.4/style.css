@@ -1,0 +1,53 @@
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.box {
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.box::before,
+.box::after,
+.box > :first-child::before,
+.box > :first-child::after {
+  content: " ";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: red;
+  border-style: solid;
+}
+
+.content > p {
+  color: black;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.box::before {
+  top: 40%;
+  left: 40%;
+  border-width: 1px 0 0 1px;
+}
+
+.box::after {
+  top: 40%;
+  left: 73%;
+  border-width: 1px 1px 0 0px;
+}
+
+.box > :first-child:before {
+  bottom: 25%;
+  right: 21.2%;
+  border-width: 0 1px 1px 0;
+}
+
+.box > :first-child:after {
+  bottom: 25%;
+  left: 40%;
+  border-width: 0 0 1px 1px;
+}

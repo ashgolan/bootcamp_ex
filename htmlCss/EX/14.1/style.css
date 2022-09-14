@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.square {
+  background-color: rgb(222, 238, 4);
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.square::after {
+  content: "";
+  background-color: rgb(15, 170, 15);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateX(0%);
+  transition: all 0.7s ease-in-out;
+}
+
+.square:hover::after {
+  width: 20px;
+}

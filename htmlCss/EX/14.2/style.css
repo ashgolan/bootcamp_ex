@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+}
+.btn-1,
+.btn-2,
+.btn-3,
+.btn-4,
+.btn-5 {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.btn-1::before {
+  content: "Cool";
+  font-size: 1.5rem;
+  color: white;
+  background-color: red;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  transform: translateY(-100%);
+  transition: all 0.7s ease-in-out;
+}
+
+.btn-1:hover::before {
+  transform: translateY(0%);
+}
+.btn-2::before {
+  content: "";
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(26, 51, 163);
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  opacity: 0.3;
+  transform: translateX(-100%);
+  transition: all 0.7s ease-in-out;
+}
+
+.btn-2:hover::before {
+  transform: translateX(0%);
+}
+.btn-3::before {
+  content: "";
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(199, 202, 17);
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  transform: rotateZ(0deg);
+  transition: all 0.7s ease-in-out;
+}
+
+.btn-3:hover::before {
+  transform: rotateZ(-180deg);
+}

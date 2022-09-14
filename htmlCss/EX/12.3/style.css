@@ -1,0 +1,20 @@
+.box1 {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background-color: rgb(212, 41, 41);
+}
+
+.box1::before {
+  content: "";
+  position: absolute;
+  opacity: 1;
+  background-color: rgb(194, 8, 116);
+  width: 50%;
+  height: 100%;
+}
+
+.box1:hover::before {
+  content: "";
+  background-color: rgb(9, 126, 116);
+}
