@@ -7,11 +7,13 @@
 
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-button {
-  margin: 20px;
-  padding: 10px 20px;
+span {
+  position: relative;
+  z-index: 1;
 }
 .btn-1,
 .btn-2,
@@ -21,12 +23,20 @@ button {
   background-color: transparent;
   position: relative;
   overflow: hidden;
+  margin: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px rgb(53, 51, 51) solid;
 }
-.btn-1::before {
-  content: "Cool";
+
+.btn-1::before,
+.btn-2::before,
+.btn-3::before,
+.btn-4::before,
+.btn-5::before {
+  content: "";
   font-size: 1.5rem;
   color: white;
-  background-color: red;
   position: absolute;
   margin: 0;
   padding: 0;
@@ -34,6 +44,11 @@ button {
   height: 100%;
   top: 0%;
   left: 0%;
+}
+
+.btn-1::before {
+  content: "Cool";
+  background-color: red;
   transform: translateY(-100%);
   transition: all 0.7s ease-in-out;
 }
@@ -42,18 +57,7 @@ button {
   transform: translateY(0%);
 }
 .btn-2::before {
-  content: "";
-  font-size: 1.5rem;
-  color: white;
   background-color: rgb(26, 51, 163);
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  left: 0%;
-  opacity: 0.3;
   transform: translateX(-100%);
   transition: all 0.7s ease-in-out;
 }
@@ -62,21 +66,44 @@ button {
   transform: translateX(0%);
 }
 .btn-3::before {
-  content: "";
-  font-size: 1.5rem;
-  color: white;
-  background-color: rgb(199, 202, 17);
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  left: 0%;
-  transform: rotateZ(0deg);
-  transition: all 0.7s ease-in-out;
+  background-color: rgb(251, 255, 0);
+  width: 250%;
+  transform: rotateZ(-90deg);
+  transition: all 0.5s ease-in;
 }
 
 .btn-3:hover::before {
-  transform: rotateZ(-180deg);
+  transform: rotateZ(0deg);
+}
+.btn-4::before {
+  content: "Scale";
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+  transform: scale(1000%);
+  transition: all 0.7s ease-in;
+}
+
+.btn-4:hover::before {
+  opacity: 1;
+  transform: scale(100%);
+}
+
+.btn-5::before {
+  background-color: rgb(255, 49, 227);
+  opacity: 0;
+  transform: scale(90deg);
+  transition: all 0.7s ease-in;
+}
+
+.btn-5:hover::before {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.btn-5 {
+  transition: border, 0.7s ease-in-out;
+}
+.btn-5:hover {
+  transform: skew(-10deg, -10deg);
+  transform: rotate3d(2.5%);
 }

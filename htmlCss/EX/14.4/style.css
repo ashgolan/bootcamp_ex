@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.circle-1 {
+  width: 100px;
+  height: 100px;
+  border: 2px yellow solid;
+  border-radius: 50%;
+}
+
+.circle-2 {
+  width: 100px;
+  height: 100px;
+  border: 2px yellow solid;
+  border-radius: 50%;
+}
