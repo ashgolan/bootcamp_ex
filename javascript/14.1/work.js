@@ -20,7 +20,7 @@ const sumOfEven = numbers.reduce((sum, current) => {
 console.log(sumOfEven);
 
 const average = numbers.reduce((total, current) => {
-  return total + current;
-});
+  return total + current / numbers.length;
+}, 0);
 
 console.log(average / numbers.length);
