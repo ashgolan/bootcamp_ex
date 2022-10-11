@@ -46,7 +46,7 @@ const findPerson = function (kindOfPerson, id) {
 console.log(findPerson("students", 11));
 console.log(findPerson("teachers", 2));
 
-console.log("-----------------------------------");
+console.log("----------------- 2 ------------------");
 
 const assignStudent = function (studentId, subject) {
   const teachers = school.teachers.filter((teacher) =>
@@ -66,7 +66,7 @@ assignStudent(13, "history");
 assignStudent(11, "history");
 assignStudent(12, "history");
 
-console.log("-----------------------------------");
+console.log("---------------- 3 -------------------");
 
 const assignTeachersSubject = function (teacherId, newSubject) {
   const teacher = school.teachers.find((t) => t.id === teacherId);
