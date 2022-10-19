@@ -1,0 +1,10 @@
+.clock {
+  padding: 2%;
+  font-size: 2rem;
+  width: 600px;
+}
+
+button {
+  padding: 1%;
+  width: 200px;
+}
