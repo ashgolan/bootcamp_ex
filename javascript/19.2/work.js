@@ -26,12 +26,11 @@ body.appendChild(div);
 div.appendChild(ol);
 
 ol.style.listStyleType = "none";
-const ides = [167464, 578447, 864578];
 
-users.forEach((element, index) => {
+users.forEach((element) => {
   const lies = document.createElement("li");
 
-  lies.setAttribute("data-id", ides[index]);
+  lies.setAttribute("data-id", element.id);
   lies.textContent = element.firstName + " " + element.lastName;
   ol.appendChild(lies);
 });
