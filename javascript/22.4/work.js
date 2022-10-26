@@ -16,7 +16,7 @@ const moving = function (key) {
       players[key] = players[key].nextElementSibling;
       players[key].classList.add("active");
     } else {
-      console.log(`player ${[+key + 1]} Won`);
+      alert(`player ${[+key + 1]} Won`);
       isWin = !isWin;
     }
 };
