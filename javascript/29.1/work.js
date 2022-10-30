@@ -1,24 +1,34 @@
-async function getIDs(arr) {
-  setTimeout(() => {
-    console.log(arr);
-    return getRecipe(arr[2]);
-  }, 1500);
-}
+const getIDs = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([532, 543, 753, 1, 5]);
+    }, 1500);
+  });
 
-async function getRecipe(recipeID) {
-  setTimeout(
-    (ID) => {
-      const recipe = {
-        title: "Fresh tomato pasta",
-        publisher: "Pinchas Hodadad",
-      };
-      console.log(`${ID}: ${recipe.title}`);
-    },
-    1500,
-    recipeID
-  );
-}
+const getRecipe = (recipeID) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      (ID) => {
+        const recipe = {
+          title: "Fresh tomato pasta",
+          publisher: "Pinchas Hodadad",
+        };
+        resolve(`${ID}: ${recipe.title}`);
+      },
+      1500,
+      recipeID
+    );
+  });
+};
 
-getIDs([532, 543, 753, 1, 5]).catch((err) => {
-  console.log("It is an error!");
-});
+getIDs()
+  .then((IDs) => {
+    console.log(IDs);
+    return getRecipe(IDs[2]);
+  })
+  .then((recipe) => {
+    console.log(recipe);
+  })
+  .catch((error) => {
+    console.log("It is an error!");
+  });

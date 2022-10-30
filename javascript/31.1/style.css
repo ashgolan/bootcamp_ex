@@ -1,0 +1,19 @@
+table {
+  width: 70%;
+  margin: auto;
+  /* padding: 4%; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 2px #98d390 solid;
+}
+
+table td {
+  width: 20%;
+}
+tbody td {
+  padding: 1%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #98d390;
+  color: rgb(0, 0, 0);
+}

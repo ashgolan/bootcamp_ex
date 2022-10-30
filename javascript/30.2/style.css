@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.big-container {
+  margin: auto;
+  margin-top: 5%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(51, 108, 155);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 5%;
+  margin-top: 1%;
+}
+.form .input-and-button {
+  display: flex;
+  width: 100%;
+}
+.form .input-and-button .input-search {
+  flex: 1 1 60%;
+  border: none;
+  padding: 1%;
+  outline: none;
+}
+.form .input-and-button .btn-search {
+  flex: 1 1 30%;
+  border: none;
+  background-color: orange;
+  cursor: pointer;
+}
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  padding: 1%;
+}
+.desc {
+  padding: 1%;
+}
+.cards-container .cards {
+  background-color: beige;
+  display: flex;
+  /* flex-direction: column; */
+  border: 2px rgb(255, 255, 255) solid;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 10px;
+  width: 60%;
+  overflow: hidden;
+  margin: 1%;
+}
+img {
+  width: 100%;
+}
+a {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: rgb(6, 79, 97);
+  background-color: white;
+  font-size: 15px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.error-search {
+  display: none;
+  color: red;
+}

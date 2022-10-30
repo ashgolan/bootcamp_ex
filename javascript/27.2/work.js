@@ -12,7 +12,7 @@ const makeAllCaps = function (arrOfWords) {
   });
 };
 
-makeAllCaps(["alaa", "benny", "nofar"])
+makeAllCaps(["name", "age", "school"])
   .then((arr) => {
     const newarr = arr.map((element) => {
       return element.toUpperCase();
