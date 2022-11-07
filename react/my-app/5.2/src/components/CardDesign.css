@@ -1,0 +1,24 @@
+.card {
+  margin-top: 2rem;
+  border: 4px solid #555;
+  border-radius: 10px 10px;
+  width: min-content;
+  box-shadow: 5px 5px 10px #666;
+  padding-bottom: 2rem;
+
+}
+
+img {
+  border-radius: 7px 7px 0 0;
+}
+
+a {
+  display: inline-block;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+p,
+h1 {
+  margin: 0.2rem;
+}
