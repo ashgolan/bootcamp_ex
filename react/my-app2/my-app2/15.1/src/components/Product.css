@@ -1,0 +1,16 @@
+.product__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0.5%;
+  width: 20%;
+  margin: auto;
+  border: 1px rgb(158, 158, 180) solid;
+  border-radius: 10px;
+}
+
+img {
+  max-width: 50%;
+}

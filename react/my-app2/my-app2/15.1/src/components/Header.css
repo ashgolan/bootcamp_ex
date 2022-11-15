@@ -1,0 +1,21 @@
+.header__titles {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 1%;
+  background-color: bisque;
+}
+.header__titles a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: brown;
+  font-weight: bold;
+}
+
+a:hover,
+a:active,
+a.active {
+  color: rgb(161, 161, 216);
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid rgb(108, 108, 180);
+}

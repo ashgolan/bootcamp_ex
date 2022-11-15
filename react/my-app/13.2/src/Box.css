@@ -1,0 +1,6 @@
+.myBox {
+  border: 2px white solid;
+  background-color: red;
+  transform: translate(100%);
+  transition: all 4s ease-in-out;
+}
