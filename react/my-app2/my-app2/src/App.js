@@ -1,87 +1,49 @@
-import React, { useEffect, useState, useRef, axios } from "react";
-import "./App.css";
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [myInput, setMyInput] = useState({ name: "", status: "✖" });
+import { Component } from "react";
 
-  useEffect(() => {
-    getForms();
-  }, []);
-
-  const addTask = function (e) {
-    e.preventDefault();
-    const temp = [...todos, myInput];
-    setTodos((oldArray) => temp);
-    localStorage.setItem("mytodos", JSON.stringify(temp));
-    setMyInput({ name: "", status: "✖" });
-  };
-
-  const deleteTask = function (e) {
-    e.preventDefault();
-    const newTasks = todos;
-    const deleting = newTasks.find((t) => {
-      return t.name === e.target.children[1].textContent;
+const Search = (props) => {
+  const searching = (e) => {
+    const filtered = props.state.data.filter((country) => {
+      return country.name.includes(e.target.value);
     });
-    const index = newTasks.indexOf(deleting);
-    if (index > -1) {
-      newTasks.splice(index, 1);
-    }
-    setTodos((oldArray) => [...newTasks]);
-    localStorage.clear();
-    localStorage.setItem("mytodos", JSON.stringify(newTasks));
+    props.setState({ data: filtered });
   };
-
-  const changeStatus = function (e) {
-    const targetName = e.target.parentElement.children[1].textContent;
-    const objWithNewStat = JSON.parse(localStorage.getItem("mytodos")).find(
-      (t) => {
-        return t.name === targetName;
-      }
-    );
-
-    e.target.textContent = e.target.textContent === "💜" ? "✖" : "💜";
-    objWithNewStat.status = e.target.textContent;
-    console.log(todos);
-    const temp = [...todos, objWithNewStat];
-    console.log(temp);
-    setTodos((oldArray) => temp);
-    console.log(localStorage);
-    // localStorage.clear() ;
-    localStorage.setItem("mytodos", JSON.stringify(temp));
-  };
-
-  const getForms = () => {
-    if (localStorage.getItem("mytodos")) {
-      return JSON.parse(localStorage.getItem("mytodos")).map((t) => {
-        return (
-          <form key={t.name} onSubmit={deleteTask}>
-            <label onClick={changeStatus}>{myInput.status}</label>
-            <label>{t.name}</label>
-            <button>Delete</button>
-          </form>
-        );
-      });
-    }
-  };
-
   return (
     <div>
-      <div>TODO's</div>
-      <div>Local storage CRUD app</div>
-      <form onSubmit={addTask}>
-        <label>Add todo</label>
-        <input
-          value={myInput.name}
-          onChange={(e) => {
-            setMyInput({ name: e.target.value, status: "✖" });
-          }}
-        />
-        <button>Add</button>
-      </form>
-      <div>{getForms()}</div>
-      <div></div>
+      <input onKeyUp={searching} type="text" />
     </div>
   );
-}
+};
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      countries: [],
+    };
+  }
+  async componentDidMount() {
+    if (this.state.data.length === 0) {
+      const res = await fetch("https://restcountries.com/v2/all");
+      const data = await res.json();
+      this.setState({ countries: data });
+      this.setState({ data: data });
+    }
+  }
+  componentDidUpdate() {
+    this.setState({ data: this.state.countries });
+  }
+  render() {
+    return (
+      <div>
+        <Search state={this.state} setState={this.setState.bind(this)}></Search>
+        <div>
+          {this.state.countries.map((country) => {
+            return <div key={country.name}>{country.name}</div>;
+          })}
+        </div>{" "}
+      </div>
+    );
+  }
+}
 export default App;

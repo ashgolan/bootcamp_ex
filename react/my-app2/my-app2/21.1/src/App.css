@@ -1,0 +1,15 @@
+.move {
+  position: relative;
+  height: 100px;
+  margin-bottom: 1%;
+  background-color: #929215;
+  animation: move 1s linear 1s forwards;
+}
+@keyframes move {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0%;
+  }
+}

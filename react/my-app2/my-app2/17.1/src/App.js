@@ -1,87 +1,72 @@
-import React, { useEffect, useState, useRef, axios } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [myInput, setMyInput] = useState({ name: "", status: "✖" });
-
+  const [task, setTask] = useState(JSON.parse(localStorage.task));
+  const [inputVal, setInputVal] = useState("");
   useEffect(() => {
-    getForms();
-  }, []);
-
-  const addTask = function (e) {
-    e.preventDefault();
-    const temp = [...todos, myInput];
-    setTodos((oldArray) => temp);
-    localStorage.setItem("mytodos", JSON.stringify(temp));
-    setMyInput({ name: "", status: "✖" });
+    const tols = JSON.stringify(task);
+    localStorage.setItem("task", tols);
+  }, [task]);
+  const addTaskHandler = () => {
+    const temp = [...task, { value: inputVal, done: false }];
+    setTask((prev) => temp);
+    const toLs = JSON.stringify(temp);
+    localStorage.setItem("task", toLs);
+    setInputVal("");
   };
 
-  const deleteTask = function (e) {
-    e.preventDefault();
-    const newTasks = todos;
-    const deleting = newTasks.find((t) => {
-      return t.name === e.target.children[1].textContent;
+  const inputChangeHandler = (e) => {
+    setInputVal((prev) => e.target.value);
+  };
+  const removeHandler = (index) => {
+    console.log("delete - ", index);
+    const afterDeleting = task.filter((t, i) => {
+      return i !== index;
     });
-    const index = newTasks.indexOf(deleting);
-    if (index > -1) {
-      newTasks.splice(index, 1);
-    }
-    setTodos((oldArray) => [...newTasks]);
-    localStorage.clear();
-    localStorage.setItem("mytodos", JSON.stringify(newTasks));
-  };
 
-  const changeStatus = function (e) {
-    const targetName = e.target.parentElement.children[1].textContent;
-    const objWithNewStat = JSON.parse(localStorage.getItem("mytodos")).find(
-      (t) => {
-        return t.name === targetName;
+    setTask((p) => afterDeleting);
+    const toLs = JSON.stringify(afterDeleting);
+    localStorage.setItem("task", toLs);
+  };
+  const updateTask = (index) => {
+    const updatedList = task.map((m, i) => {
+      if (i === index) {
+        m.done = !m.done;
+        return m;
+      } else {
+        return m;
       }
-    );
-
-    e.target.textContent = e.target.textContent === "💜" ? "✖" : "💜";
-    objWithNewStat.status = e.target.textContent;
-    console.log(todos);
-    const temp = [...todos, objWithNewStat];
-    console.log(temp);
-    setTodos((oldArray) => temp);
-    console.log(localStorage);
-    // localStorage.clear() ;
-    localStorage.setItem("mytodos", JSON.stringify(temp));
+    });
+    setTask((p) => updatedList);
+    const toLs = JSON.stringify(updatedList);
+    localStorage.setItem("task", toLs);
   };
-
-  const getForms = () => {
-    if (localStorage.getItem("mytodos")) {
-      return JSON.parse(localStorage.getItem("mytodos")).map((t) => {
-        return (
-          <form key={t.name} onSubmit={deleteTask}>
-            <label onClick={changeStatus}>{myInput.status}</label>
-            <label>{t.name}</label>
-            <button>Delete</button>
-          </form>
-        );
-      });
-    }
-  };
-
   return (
     <div>
-      <div>TODO's</div>
-      <div>Local storage CRUD app</div>
-      <form onSubmit={addTask}>
-        <label>Add todo</label>
-        <input
-          value={myInput.name}
-          onChange={(e) => {
-            setMyInput({ name: e.target.value, status: "✖" });
-          }}
-        />
-        <button>Add</button>
-      </form>
-      <div>{getForms()}</div>
-      <div></div>
+      <div>TODO LIST</div>
+      <input
+        value={inputVal}
+        type="text"
+        onChange={(e) => inputChangeHandler(e)}
+      />
+      <button onClick={addTaskHandler}>ADD</button>
+      <div>
+        {task.map((t, index) => {
+          return (
+            <div>
+              <>
+                <div onClick={() => updateTask(index)}>
+                  {t.value}
+                  {t.done ? "v" : "X"}
+                </div>
+                <button onClick={() => removeHandler(index)}>remove</button>
+              </>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
 export default App;

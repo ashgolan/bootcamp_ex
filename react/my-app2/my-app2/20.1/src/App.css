@@ -1,0 +1,11 @@
+.farmer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  /* justify-content: flex-start; */
+  border: 1px gray solid;
+  border-radius: 10px;
+  align-items: center;
+  margin: 1%;
+  font-size: 1rem;
+}
